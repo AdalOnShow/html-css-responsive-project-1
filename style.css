@@ -1,3 +1,15 @@
+:root {
+  --primaryColor: #0b0736;
+  --secondaryColor: #cce8fd;
+  --whiteColor: #ffffff;
+  --tardilyColor: #fee5c1;
+  --greyColor: #808080;
+  --gainsboroColor: #9393c4;
+  --footerColor: #d9f4ff;
+
+  --boxShadow: 0px 0px 8px 10px rgba(0, 0, 0, 0.2);
+  --boxShadow2: 0px 0px 3px 5px rgba(0, 0, 0, 0.2);
+}
 *,
 *::after,
 *::before {
@@ -5,15 +17,10 @@
   margin: 0;
   box-sizing: border-box;
   text-decoration: none;
-}
-:root {
-  --whiteColor: #ffffff;
-  --primaryColor: #0b0736;
-  --secColor: #cce8fd;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 body,
 html {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
   width: 100%;
   height: 100vh;
 }
@@ -23,14 +30,111 @@ html {
 }
 .between {
   display: grid;
-  gap: 5rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0px, 1fr));
   align-items: center;
+  gap: 5rem;
 }
+p {
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--greyColor);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--primaryColor);
+}
+.btn-type1 {
+  width: 200px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  background-color: var(--secondaryColor);
+  color: var(--primaryColor);
+  padding: 16px 28px;
+  border-radius: 20px;
+  border: none;
+  transition: 0.5s;
 
-/* ==============================
+  & img {
+    width: 25px;
+    height: auto;
+    object-fit: cover;
+    transition: 0.5s;
+  }
+
+  .black-apple {
+    display: block;
+    transition: 0.5s;
+  }
+  .white-apple {
+    display: none;
+    transition: 0.5s;
+  }
+
+  & p {
+    font-size: 12px;
+    color: var(--gainsboroColor);
+    text-align: left;
+  }
+
+  & h3 {
+    font-size: 17px;
+    font-weight: 600;
+    transition: 0.5s;
+  }
+
+  &:hover {
+    box-shadow: var(--boxShadow2);
+    & h3 {
+      color: var(--secondaryColor);
+    }
+    background-color: var(--primaryColor);
+    .black-apple {
+      display: none;
+    }
+    .white-apple {
+      display: block;
+    }
+  }
+
+  &:active {
+    transform: translateY(3px);
+  }
+}
+.btn-type2 {
+  background-color: var(--primaryColor);
+  .black-apple {
+    display: none;
+  }
+  .white-apple {
+    display: block;
+  }
+  & h3 {
+    color: var(--secondaryColor);
+  }
+
+  &:hover {
+    background-color: var(--tardilyColor);
+    & h3 {
+      color: var(--primaryColor);
+    }
+    .black-apple {
+      display: block;
+    }
+    .white-apple {
+      display: none;
+    }
+  }
+}
+/* =========================
 Start Style Navbar
-============================== */
+========================= */
 .navbar {
   max-width: 93%;
   margin: 0% auto;
@@ -45,7 +149,7 @@ Start Style Navbar
     cursor: pointer;
   }
 
-  & div {
+  .nav-button {
     border: 1px solid gainsboro;
     padding: 8px;
     display: flex;
@@ -53,26 +157,31 @@ Start Style Navbar
     font-weight: 600;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color, border-color 0.5s;
+  }
+  .nav-button:hover {
+    background-color: var(--secondaryColor);
+    border-color: var(--primaryColor);
   }
 }
-/* ==============================
+/* =========================
 End Style Navbar
-============================== */
+========================= */
 
-/* ==============================
-Start Style Hero
-============================== */
-.banner-images {
+/* =========================
+Start Home Section
+========================= */
+.home-img {
   position: absolute;
   width: 50dvw;
-  right: 0;
   top: 0;
+  right: 0;
   z-index: -155;
 }
 
-.banner-section {
-  padding: 120px 0;
+.home-section {
   margin-left: 150px;
+  padding: 120px 0;
 
   & h1 {
     font-size: 90px;
@@ -81,96 +190,79 @@ Start Style Hero
   }
 
   & div {
-    padding: 20px 0;
     display: flex;
-    gap: 4px;
-    color: var(--primaryColor);
     align-items: center;
     justify-items: center;
+    gap: 4px;
     font-size: 26px;
+    padding: 20px 0;
+    color: var(--primaryColor);
   }
 
-  button {
-    padding: 20px 30px;
+  & button {
     font-size: 18px;
     font-weight: 500;
     color: var(--whiteColor);
-    background: var(--primaryColor);
+    background-color: var(--primaryColor);
+    padding: 20px 30px;
     border-radius: 12px;
     border: none;
     cursor: pointer;
+    transition: 0.5s;
+
+    &:hover {
+      box-shadow: var(--boxShadow);
+      color: var(--primaryColor);
+      background: var(--secondaryColor);
+    }
   }
 }
-/* ==============================
-End Style Hero
-============================== */
+/* =========================
+End Home Section
+========================= */
 
-/* ==============================
-Start Style Target Section
-============================== */
+/* =========================
+Start Target Section
+========================= */
 .target-section {
   padding: 140px 0;
 
-  .target-images {
+  .target-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    cursor: pointer;
+    transition: 0.5s;
+    border-radius: 50%;
+
+    &:hover {
+      box-shadow: var(--boxShadow);
+      transform: translateY(-10px);
+    }
   }
 
   .target-details {
-    & h2 {
+    .heading {
       font-size: 68px;
       font-weight: 550;
     }
 
     & .para {
       padding: 40px 0;
-      color: gray;
-      font-size: 24px;
-      font-weight: 400;
+    }
+
+    & button {
+      margin-bottom: 40px;
     }
   }
 }
+/* =========================
+End Target Section
+========================= */
 
-.btn {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 16px 28px;
-  background-color: var(--secColor);
-  border-radius: 20px;
-  border: none;
-  cursor: pointer;
-  width: 200px;
-  height: 70px;
-  margin-bottom: 40px;
-
-  & img {
-    width: 33px;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .btn-item {
-    & p {
-      font-size: 12px;
-      color: #9393c4;
-      text-align: left;
-    }
-
-    & h3 {
-      font-size: 18px;
-      font-weight: 600;
-    }
-  }
-}
-/* ==============================
-End Style Target Section
-============================== */
-
-/* ==============================
-Start Style Track Section
-============================== */
+/* =========================
+Start Track Section
+========================= */
 .track-section {
   position: relative;
 
@@ -186,7 +278,7 @@ Start Style Track Section
       font-size: 85px;
     }
 
-    .images-grid {
+    .imgs-grid {
       padding-top: 80px;
       padding-left: 80px;
       display: flex;
@@ -197,6 +289,17 @@ Start Style Track Section
         display: flex;
         flex-direction: column;
         gap: 20px;
+
+        & img {
+          cursor: pointer;
+          transition: 0.5s;
+          border-radius: 25px;
+
+          &:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--boxShadow);
+          }
+        }
       }
 
       & div:nth-child(2) {
@@ -207,7 +310,7 @@ Start Style Track Section
 
   .right-section {
     & h3 {
-      color: #9393c4;
+      color: var(--gainsboroColor);
       font-size: 40px;
       font-weight: 400;
       padding-right: 8rem;
@@ -219,9 +322,17 @@ Start Style Track Section
       gap: 30px;
       margin-top: 60px;
 
+      & img {
+        cursor: pointer;
+        transition: 0.5s;
+        &:hover {
+          transform: translateY(-5px);
+          /* box-shadow: var(--boxShadow2); */
+        }
+      }
+
       & div {
         padding-top: 20px;
-
         & h2 {
           font-size: 24px;
           font-weight: 600;
@@ -231,7 +342,7 @@ Start Style Track Section
           font-size: 20px;
           font-weight: 400;
           padding-top: 20px;
-          color: #9393c4;
+          color: var(--gainsboroColor);
           max-width: 300px;
         }
       }
@@ -239,16 +350,15 @@ Start Style Track Section
   }
 }
 
-/* ==============================
-End Style Track Section
-============================== */
-
-.company {
+/* =========================
+End Track Section
+========================= */
+.company-section {
   display: flex;
   align-items: center;
   justify-content: center;
   max-width: 1240px;
-  margin: 0% auto;
+  margin: 0 auto;
 
   & img {
     width: 100%;
@@ -257,18 +367,22 @@ End Style Track Section
   }
 }
 
-/* ==============================
-Start Style Join Section
-============================== */
+/* =========================
+Start Join Section
+========================= */
 .join-section {
   width: 90%;
   margin: 120px auto;
-  background-color: #d9f4ff;
+  background-color: var(--footerColor);
+  transition: 2s;
   border-radius: 56px;
   display: grid;
   align-items: center;
   grid-template-columns: repeat(2, minmax(0, 1fr));
 
+  &:hover {
+    background-color: var(--tardilyColor);
+  }
   .details {
     display: flex;
     justify-content: center;
@@ -281,19 +395,16 @@ Start Style Join Section
     font-size: 68px;
   }
 
-  .btn {
+  & button {
     margin-top: 20px;
-    background-color: var(--primaryColor);
-
-    & h3 {
-      color: #ffffff;
+    &:hover {
+      background-color: var(--secondaryColor);
     }
   }
 }
-
-/* ==============================
-End Style Join Section
-============================== */
+/* =========================
+End Join Section
+========================= */
 
 .copyright {
   text-align: center;
@@ -302,12 +413,19 @@ End Style Join Section
 
   & span {
     color: var(--primaryColor);
+
+    & a {
+      &:hover {
+        text-decoration: 2px underline var(--primaryColor);
+      }
+    }
   }
 }
 
-/* ==============================
+/* =========================
 Start Responsive For Mobile
-============================== */
+========================= */
+
 @media (max-device-width: 767px) {
   .container {
     padding: 0 16px;
@@ -316,11 +434,25 @@ Start Responsive For Mobile
     gap: 3rem;
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
+  p {
+    font: 18px;
+  }
+  .btn-type1 {
+    width: 180px;
+    height: 65px;
 
-  .banner-images {
+    & P {
+      font-size: 10px;
+    }
+    & h3 {
+      font-size: 15px;
+    }
+  }
+
+  .home-img {
     top: 65px;
   }
-  .banner-section {
+  .home-section {
     padding: 60px 16px;
     position: relative;
     right: 115px;
@@ -331,10 +463,32 @@ Start Responsive For Mobile
 
     & div {
       padding: 16px 0;
-      font-size: 20px;
+      font-size: 18px;
+
+      & img {
+        width: 30px;
+        height: auto;
+      }
     }
-    .btn {
-      margin-bottom: 50px;
+
+    & button {
+      font-size: 16px;
+      font-weight: 500;
+      padding: 15px 18px;
+    }
+  }
+
+  .target-section {
+    padding: 40px 10px;
+
+    .target-details {
+      .heading {
+        font-size: 50px;
+      }
+
+      & button {
+        margin-bottom: 40px;
+      }
     }
   }
 
@@ -349,7 +503,7 @@ Start Responsive For Mobile
         font-size: 40px;
       }
 
-      .images-grid {
+      .imgs-grid {
         padding-top: 40px;
         padding-left: 40px;
         gap: 16px;
@@ -360,7 +514,6 @@ Start Responsive For Mobile
         }
       }
     }
-
     .right-section {
       & h3 {
         font-size: 24px;
@@ -404,6 +557,6 @@ Start Responsive For Mobile
   }
 }
 
-/* ==============================
+/* =========================
 End Responsive For Mobile
-============================== */
+========================= */
